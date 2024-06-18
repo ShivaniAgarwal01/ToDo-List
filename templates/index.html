@@ -1,0 +1,28 @@
+{% extends "base.html" %}    
+      {% comment %} <div class="alert alert-primary" role="alert">
+        A simple primary alert—check it out!
+      </div> {% endcomment %}
+
+      {% block title %} HOME{% endblock  %}
+      {% block active %}active{% endblock active %}
+      {% block body %}
+      <div class="text-center my-3">
+        <h1>-ToDos list-</h1>
+        <br>
+        <h3>Add a Task</h3>
+      </div>
+     <form action="/" method="post">
+        {% csrf_token %}
+      <div class="container mt-3">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Task Title</label>
+            <input type="text" class="form-control" name="title" id="title" >
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Task Description</label>
+            <textarea class="form-control" name ="desc" id="desc" rows="7"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="background:green ;">Submit</button>
+        </form>
+        </div>
+        {% endblock %}

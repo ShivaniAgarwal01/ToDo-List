@@ -1,0 +1,26 @@
+{% extends "base.html" %}    
+    
+{% block title %} TASKS {% endblock  %}
+{% block active1 %}active{% endblock active1 %}
+{% block body %}
+      <div class="container" mt-3>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">SNO.</th>
+                <th scope="col">Task Title</th>
+                <th scope="col">Task Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for task in tasks  %}
+              <tr>
+                <th scope="row">{{forloop.counter}}.</th>
+                <td>{{task.taskTitle}}</td>
+                <td>{{task.taskDesc}}</td>
+                </tr>
+              {% endfor %}
+                </tbody>
+          </table>
+      </div>
+      {% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}    
+{% block title %} SEARCH{% endblock %}
+    {% block body %}
+      <div class="text-center p-3">
+        {% if searched %}
+        <h2>YOU SEARCHED FOR "{{ searched }}"</h2>
+        <table class="table my-4">
+            <thead>
+              <tr>
+                <th scope="col">SNO.</th>
+                <th scope="col">Task Title</th>
+                <th scope="col">Task Description</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks  %}
+        <tr>
+            <th scope="row">{{forloop.counter}}.</th>
+            <td>{{task.taskTitle}}</td>
+            <td>{{task.taskDesc}}</td>
+        </tr>
+            {%  empty %}
+            <tr>
+              <td>No tasks found.</td>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <h2>Please enter a search term.</h2>
+        {% endif %}
+    </div>
+    {% endblock %}
